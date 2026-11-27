@@ -1,0 +1,61 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "opencode-go/deepseek-v4.1-flash",
+  "agent": {
+    "manga-master": {
+      "model": "opencode-go/deepseek-v4.1-flash"
+    }
+  },
+  "plugins": [
+    "-manga-dispatch",
+    {
+      "package": "./plugins/manga-dispatch",
+      "options": {
+        "koharuUrl": "http://127.0.0.1:7878/mcp",
+        "priorTranslations": 10,
+        "translateModel": "opencode-go/deepseek-v4.1-flash",
+        "typesetModel": "opencode-go/deepseek-v4.1-flash",
+        "cleanupSessions": false,
+        "maxTranslations": 1,
+        "maxTypesets": 5,
+        "maxRetries": 10,
+        "llmTypeset": false,
+        "defaultTypesetting": {
+          "en": {
+            "direction": "horizontal",
+            "language": "en",
+            "style": {
+              "align": "center"
+            },
+            "frame": {
+              "box": {
+                "fit": "best",
+                "anchor": "center"
+              }
+            }
+          }
+        },
+        "pageMinutes": 8,
+        "contactSheet": false,
+        "hooks": [],
+        "_hooks_note": "The pdf.built hook is disabled; restore its entry to re-enable delivery."
+      }
+    }
+  ],
+  "mcp": {
+    "servers": {
+      "glossary": {
+        "type": "local",
+        "command": [
+          "bun",
+          "./tools/glossary-mcp/src/server.ts"
+        ]
+      },
+      "koharu": {
+        "type": "remote",
+        "url": "http://127.0.0.1:7878/mcp",
+        "oauth": false
+      }
+    }
+  }
+}

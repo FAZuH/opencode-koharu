@@ -1,0 +1,25 @@
+# Manga work data: sources, projects, renders, and books
+manga/
+
+# Dependencies, reinstalled with bun install
+node_modules/
+
+# Local source checkouts
+koharu-src/
+koharu-src-wt/
+
+# Logs and local noise
+*.log
+.DS_Store
+
+# Agent scratch notes are local; also ignored in the global gitignore
+.scratch/
+
+# Runtime data, generated books, and secrets stay on the host
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.pdf
+.env*
+*.enc
+.venv/
