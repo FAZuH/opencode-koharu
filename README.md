@@ -80,4 +80,4 @@ For a Discord guild, install the plugin and agent definitions under that session
 
 ## License
 
-No license file is present in this repository.
+[MIT](https://spdx.org/licenses/MIT.html)
